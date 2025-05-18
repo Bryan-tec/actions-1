@@ -16,6 +16,7 @@ jobs:
                 echo "This is the first job"
                 ls -ltra
                 cat README.md
+                sudo apt-get install cowsay -y
 
             - name: Generate ASCII Artwork #Usage of third-party library
               run: cowsay -f dragon "Run... to... the... hills" >> dragon.txt
