@@ -1,0 +1,26 @@
+name: generate ascii artwork
+
+on: 
+  push
+
+jobs: 
+    ascii_job:
+        runs-on: ubuntu-latest # Where is gonna run
+        steps:
+        - name: Checkount repo #Check the repo
+          uses: actions/checkout@v4
+#Install the cowsay library
+        - name: Install cowsay library 
+          run: sudo apt-get install cowsay -y
+#Generate a file with the context of the command
+        - name: Execute cowsay CMD 
+          run: cowsay -f dragon "Run... to... the... hills" >> dragon.txt
+#Validate if the File Exists
+        - name: Test File Exists 
+          run: grep -i "dragon" dragon.txt
+#Read the file generated with the command
+        - name: Read File
+          run: cat dragon.txt
+#See the files in the repo
+        - name: List Repo Files
+          run: ls -ltra
