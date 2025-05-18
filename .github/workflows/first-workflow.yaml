@@ -8,11 +8,11 @@ jobs:
     first_job:
         runs-on: ubuntu-latest 
         steps:
+            - name: Checkout Repo
+              uses: actions/checkout@v4
+              
             - name: Welcome message
               run: echo "This is the first job"
-
-            - name: Create a File
-              run: echo "If you read this, all is good" > README.md
 
             - name: List files
               run: ls
