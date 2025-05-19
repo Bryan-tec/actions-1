@@ -16,6 +16,7 @@ jobs:
           run: sleep 30
 
     test_job_2:
+        needs: build_job_1 #Sentence to define the neccessary to run
         runs-on: ubuntu-latest
         steps:
         - name: Sleep for 10 Seconds
@@ -25,6 +26,7 @@ jobs:
           run: grep -i "dragon" dragon.txt
 
     deploy_job_3:
+        needs: [build_job_1, test_job_2] #Sentence to define the neccessary to run
         runs-on: ubuntu-latest
         steps:
         - name: Read File
@@ -32,3 +34,7 @@ jobs:
 
         - name: Deploy
           run: echo Deploying......
+
+#It's expected that when you run a workflow with multiple jobs, 
+#all the jobs run at the same time, it's expected that some jobs
+#turns in "fail" status. In this case Add "needs" condition
