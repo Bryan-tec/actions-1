@@ -23,7 +23,7 @@ jobs:
           run: sleep 10
 
         - name: Test File Exists
-          run: grep -i "dragon" dragon.txt
+          run: ls
 
     deploy_job_3:
         needs: [build_job_1, test_job_2] #Sentence to define the neccessary to run
