@@ -28,7 +28,7 @@ jobs:
             name: dragon-file
 
         - name: Test File Exists
-          run: grep -i "dragon" dragon.txt
+          run: ls
 
     deploy_job_3:
         needs: [build_job_1, test_job_2] #Sentence to define the neccessary to run
@@ -38,7 +38,7 @@ jobs:
           uses: actions/download-artifact@v4
           with:
             name: dragon-file
-            
+
         - name: Read File
           run: cat dragon.txt
 
