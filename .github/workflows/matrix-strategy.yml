@@ -23,4 +23,4 @@ jobs:
           run: docker info
         
         - name: Run image on ${{matrix.os}}
-          run: docker run ${{matrix.images}}
+          run: docker run ${{matrix.images}} 
